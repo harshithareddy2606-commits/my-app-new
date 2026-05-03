@@ -1,13 +1,23 @@
 package com.example;
 
-public class App {
-    public static void main(String[] args) {
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+@SpringBootApplication
+@RestController
+public class App {
+
+    public static void main(String[] args) {
+        SpringApplication.run(App.class, args);
+    }
+
+    @GetMapping("/")
+    public String home() {
         int a = 5;
         int b = 10;
-
         int sum = a + b;
-
-        System.out.println("Sum is: " + sum);
+        return "Sum is: " + sum;
     }
 }
